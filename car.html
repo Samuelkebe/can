@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motors - Car Dealer Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+<style>
+    /* Custom Styles */
+    .navbar {
+        background-color: #f8f9fa; /* Light background for navbar */
+        font-weight: bold;
+    }
+
+    .navbar-brand img {
+        max-height: 50px; /* Adjust logo size */
+    }
+
+    /* Hero Section Styles */
+    .hero {
+        display: flex;
+        height: 80vh;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero-left {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px 50px;
+        color: #fff;
+        background: linear-gradient(to right, #000000, hsl(0, 9%, 98%)); /* Gradient background */
+    }
+
+    .hero-left h1 {
+        font-size: 4em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .hero-left p {
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .btn-book-now {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .hero-right {
+        width: 50%;
+        position: relative;
+    }
+
+    /* Slider Styles */
+    .hero-slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .hero-slider .slick-slide {
+        position: relative;
+        height: 100%;
+    }
+
+    .hero-slider .slick-slide img {
+        width: 110%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-slider .slick-prev,
+    .hero-slider .slick-next {
+        display: none !important; /* Hide the prev/next buttons */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .hero-slider .slick-prev {
+        left: 10px;
+    }
+
+    .hero-slider .slick-next {
+        right: 10px;
+    }
+
+    .hero-slider .slick-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 3;
+    }
+
+    .hero-slider .slick-dots li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .hero-slider .slick-dots li.slick-active {
+        background-color: #fff;
+    }
+
+    /* Custom Styles */
+    .car-card {
+        border: 1px solid #dee2e6;
+        margin-bottom: 20px;
+    }
+
+    .car-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="2 log.jpeg" alt="logo"> 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="car.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="inventory.html">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Compare</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <div class="hero-left">
+            <h1>Find Your Dream Ride Today</h1>
+            <p>🔥 Best Deals • Top Brands • Easy Financing!</p>
+            <p>Experience luxury with a Lamborghini rental. Choose from a wide selection of models for any occasion.</p>
+            <a href="#" class="btn-book-now">Book now</a>
+        </div>
+        <div class="hero-right">
+            <div class="hero-slider">
+                <div class="slick-slide">
+                    <img src="Banner.jpg" alt="Banner 1">
+                </div>
+                <div class="slick-slide">
+                    <img src="lambo2.jpg" alt="lambo 2">
+                </div>
+                <div class="slick-slide">
+                    <img src="lambo3.jpg" alt="Lamborghini 3">
+                </div>
+                <div class="slick-slide">
+                    <img src="lam 6.jpeg" alt="Banner 1">
+                </div>
+                <div class="slick-slide">
+                    <img src="buga 1.jpeg" alt="lambo 2">
+                </div>
+                <div class="slick-slide">
+                    <img src="lam 5.png" alt="Lamborghini 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2>Welcome to Motors World</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="BMW 535I.png" alt="BMW 535I"> 
+                    <div class="p-3">
+                        <h5>BMW 535I, NAVI</h5>
+                        <p>$45,000</p>
+                    </div>
+                </div>
+            </div>
+          <div class="col-md-3">
+                <div class="car-card">
+                    <img src="Toyota Camry XSE.heif" alt="Toyota Camry XSE">
+                    <div class="p-3">
+                        <h5>Toyota Camry XSE</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+         <div class="col-md-3">
+                <div class="car-card">
+                    <img src="Kia Soul, Brand New.png" alt="Kia Soul">
+                    <div class="p-3">
+                        <h5>Kia Soul, Brand New</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+         <div class="col-md-3">
+                <div class="car-card">
+                    <img src="Hyundai Veloster.png" alt="Hyundai Veloster"> 
+                    <div class="p-3">
+                        <h5>Hyundai Veloster</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="fake1.jpeg" alt="Hyundai Veloster"> 
+                    <div class="p-3">
+                        <h5>Hyundai Veloster</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="fake2.jpeg" alt="Hyundai Veloster"> 
+                    <div class="p-3">
+                        <h5>Hyundai Veloster</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="fake3.jpeg" alt="Hyundai Veloster"> 
+                    <div class="p-3">
+                        <h5>Hyundai Veloster</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="car-card">
+                    <img src="Hyundai Veloster.png" alt="Hyundai Veloster"> 
+                    <div class="p-3">
+                        <h5>Hyundai Veloster</h5>
+                        <p>$25,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div>
+    
+</div>
+    <footer class="footer">
+        <p>&copy; 2024 Motors. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.hero-slider').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                prevArrow: false, //changed
+                nextArrow: false //changed
+            });
+        });
+    </script>
+</body>
+</html>
